@@ -1,0 +1,1 @@
+export const paperGrain = require('./paper-grain.png')
