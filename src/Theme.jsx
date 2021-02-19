@@ -1,6 +1,8 @@
 import React from "react";
 import { ThemeProvider } from "styled-components";
 
+
+
 const theme = {
   colors: {
     accent: "#1DA1F2",
@@ -10,7 +12,7 @@ const theme = {
     xlGray: "#E1E8ED",
     xxlGray: "#F5F8FA",
   },
-  fonts: ["sans-serif", "Roboto"],
+  fonts: ["Lexend"],
   fontSizes: {
     small: "1em",
     medium: "2em",
