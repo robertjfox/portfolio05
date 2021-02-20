@@ -14,7 +14,7 @@ const Text = ({ string, delay: baseDelay }) => {
   return (
     <S.CharsCont>
       {splitStr.map((char, index) => (
-        <S.Char baseDelay={baseDelay} delay={index} space={char === " "}>
+        <S.Char baseDelay={baseDelay} index={index} space={char === " "}>
           {char}
         </S.Char>
       ))}

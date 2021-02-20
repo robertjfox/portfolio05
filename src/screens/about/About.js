@@ -2,7 +2,11 @@ import React from "react"
 import * as S from "./About.styles"
 
 const About = () => {
-  return <S.AboutRoot>About</S.AboutRoot>
+  return (
+    <S.AboutRoot>
+      <h1>About</h1>
+    </S.AboutRoot>
+  )
 }
 
 export default About

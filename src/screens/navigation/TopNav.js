@@ -31,16 +31,16 @@ const Line = styled.div`
 const TopNav = ({ setScreen }) => {
   return (
     <TopNavRoot>
-      <Fade down delay={4000}>
+      <Fade down delay={3000}>
         <NavItem onClick={() => setScreen("about")}>ABOUT</NavItem>
       </Fade>
-      <Fade down delay={4200}>
+      <Fade down delay={3200}>
         <NavItem onClick={() => setScreen("work")}>WORK</NavItem>
       </Fade>
-      <Fade down delay={4400}>
+      <Fade down delay={3400}>
         <NavItem onClick={() => setScreen("contact")}>CONTACT</NavItem>
       </Fade>
-      <Fade right delay={4600}>
+      <Fade right delay={3600}>
         <Line />
       </Fade>
     </TopNavRoot>

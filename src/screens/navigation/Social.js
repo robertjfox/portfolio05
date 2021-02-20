@@ -38,7 +38,7 @@ const Line = styled.div`
 const Social = () => {
   return (
     <SocialRoot>
-      <Fade left delay={4000}>
+      <Fade left delay={3000}>
         <a
           href={`mailto:${"robertjfox94@gmail.com"}`}
           target="_blank"
@@ -47,7 +47,7 @@ const Social = () => {
           <img src={process.env.PUBLIC_URL + contact} alt="contact" />
         </a>
       </Fade>
-      <Fade left delay={4200}>
+      <Fade left delay={3200}>
         <a
           href="https://github.com/robertjfox"
           target="_blank"
@@ -56,7 +56,7 @@ const Social = () => {
           <img src={process.env.PUBLIC_URL + github} alt="contact" />
         </a>
       </Fade>
-      <Fade left delay={4400}>
+      <Fade left delay={3400}>
         <a
           href="https://www.linkedin.com/in/robert-fox-1b341996/"
           target="_blank"
@@ -65,7 +65,7 @@ const Social = () => {
           <img src={process.env.PUBLIC_URL + linkedin} alt="contact" />
         </a>
       </Fade>
-      <Fade up delay={4600}>
+      <Fade up delay={3600}>
         <Line />
       </Fade>
     </SocialRoot>

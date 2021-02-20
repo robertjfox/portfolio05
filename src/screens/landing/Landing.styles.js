@@ -1,17 +1,30 @@
 import styled, { keyframes } from "styled-components"
 import Tilt from "react-tilt"
 
-const charContainerSlide = keyframes`
+const containerSlideIn = keyframes`
   0% { transform: translateX(-85px);}
 `
 
-const charSlide = keyframes`
+const containerSlideOut = keyframes`
+  100% { transform: translateX(-85px);}
+`
+
+const charSlideIn = keyframes`
   0% { transform: translateY(100%); opacity: 0;}
   85% { transform: translateY(-10%); opacity: .85;}
 `
 
-const imageSlide = keyframes`
+const charSlideOut = keyframes`
+  15% { transform: translateY(10%); opacity: .15;}
+  100% { transform: translateY(-100%); opacity: 0;}
+`
+
+const imageSlideIn = keyframes`
   0% { transform: translateX(30%); opacity: 0;}
+`
+
+const imageSlideOut = keyframes`
+  100% { transform: translateX(30%); opacity: 0;}
 `
 
 export const TiltContainer = styled(Tilt)`
@@ -38,20 +51,25 @@ export const HeadshotCont = styled.div`
 
 export const Headshot = styled.img`
   height: 100%;
+  opacity: 0.5;
   margin-right: 30px;
-  filter: grayscale(1);
+  filter: grayscale(1) contrast(1.25);
   border-radius: 10px;
-  animation-name: ${imageSlide};
-  animation-delay: 3.2s;
-  animation-duration: 0.6s;
-  animation-fill-mode: backwards;
+  animation-name: ${(p) =>
+    p.theme.isUnmounting ? imageSlideOut : imageSlideIn};
+  animation-delay: ${(p) => (p.theme.isUnmounting ? "0s" : "2.4s")};
+  animation-duration: ${(p) => (p.theme.isUnmounting ? "0.3s" : "0.6s")};
+  animation-fill-mode: ${(p) =>
+    p.theme.isUnmounting ? "forwards" : "backwards"};
 `
 
 export const TextCont = styled.div`
-  animation-name: ${charContainerSlide};
-  animation-delay: 3.2s;
-  animation-duration: 0.6s;
-  animation-fill-mode: backwards;
+  animation-name: ${(p) =>
+    p.theme.isUnmounting ? containerSlideOut : containerSlideIn};
+  animation-delay: ${(p) => (p.theme.isUnmounting ? "0s" : "2.4s")};
+  animation-duration: ${(p) => (p.theme.isUnmounting ? "0.3s" : "0.6s")};
+  animation-fill-mode: ${(p) =>
+    p.theme.isUnmounting ? "forwards" : "backwards"};
 `
 
 export const CharsCont = styled.div`
@@ -63,11 +81,15 @@ export const CharsCont = styled.div`
 `
 
 export const Char = styled.p`
-  animation-name: ${charSlide};
-  animation-delay: ${(p) => p.delay / 20 + p.baseDelay}s;
-  animation-duration: 0.4s;
-  animation-fill-mode: backwards;
+  animation-name: ${(p) => (p.theme.isUnmounting ? charSlideOut : charSlideIn)};
+  animation-delay: ${(p) =>
+    (p.index / 20 + (p.theme.isUnmounting ? 0 : p.baseDelay / 1.3)) *
+      (p.theme.isUnmounting ? 0.5 : 1) +
+    (p.theme.isUnmounting ? 0.2 : 0)}s;
+  animation-duration: ${(p) => (p.theme.isUnmounting ? "0.3s" : "0.4s")};
+  animation-fill-mode: ${(p) =>
+    p.theme.isUnmounting ? "forwards" : "backwards"};
   font-size: 40px;
-  /* margin-bottom: 3vh; */
-  ${(p) => p.space && "width: 20px"}
+  ${(p) => p.space && "width: 20px"};
+  opacity: 0.75;
 `

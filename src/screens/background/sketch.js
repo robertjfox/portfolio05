@@ -19,7 +19,7 @@ const Sketch = (p5) => {
       const yPercentage = (y / window.innerHeight).toFixed(2)
       const size = getRandomInt(3) + 2
       const fill = yPercentage * 50 + 205
-      p5.fill(fill, fill, fill, 24)
+      p5.fill(fill, fill, fill, 20)
       p5.ellipse(x, y, size)
     }
     p5.pop()
