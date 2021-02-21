@@ -5,7 +5,7 @@ function getRandomInt(max) {
 const Sketch = (p5) => {
   p5.setup = () => {
     p5.createCanvas(window.innerWidth - 10, window.innerHeight - 10)
-    p5.frameRate(8)
+    p5.frameRate(4)
   }
 
   p5.draw = () => {
