@@ -17,13 +17,13 @@ const useMousePosition = () => {
 }
 
 const cursorPulse = keyframes`
-    50% {background: rgba(255, 255, 255, 0.6); }
+    50% {background: rgba(255, 255, 255, 0.7); }
 `
 
 const CursorRoot = styled.div`
   height: 15px;
   width: 15px;
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.2);
   border: 1px solid white;
   position: absolute;
   border-radius: 50%;

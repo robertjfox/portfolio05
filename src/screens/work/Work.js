@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import * as S from "./Work.styles"
 import PROJECT_DATA from "./Work.data"
-import ProjectAvantStay from "./projects/ProjectAvantstay"
+import Project from "./projects/Project"
 
 const WorkTile = ({
   index,
@@ -17,10 +17,10 @@ const WorkTile = ({
     <S.WorkTileRoot
       animateOut={animateOut}
       index={index}
-      onClick={() => handleSelection(project)}
+      onClick={() => handleSelection(project, index)}
       selected={selected}
     >
-      <S.LogoImg src={logo} />
+      <S.LogoImg src={logo} larger={project === "rentroom"} />
       <S.Title>{title}</S.Title>
     </S.WorkTileRoot>
   )
@@ -30,25 +30,24 @@ const Work = () => {
   const [selectedTile, setSelectedTile] = useState("")
   const [selectedProject, setSelectedProject] = useState("")
   const [showTileDescription, setShowTileDescription] = useState(false)
-  const [unmoutingSelection, setUnmountingSelection] = useState(false)
 
-  const handleSelection = (project) => {
+  const handleSelection = (project, index) => {
     setSelectedTile(project)
+    setSelectedProject(project)
     setTimeout(() => {
       setShowTileDescription(true)
-    }, 1200)
+    }, 600 + index * 200)
   }
 
   const handleDeselection = () => {
-    setUnmountingSelection(true)
     setTimeout(() => {
       setShowTileDescription(false)
       setSelectedProject("")
       setSelectedTile("")
-    }, 1000)
+    }, 400)
   }
 
-  const PROJECT_NAMES = ["test", "avantstay", "test2"]
+  const PROJECT_NAMES = ["avantstay", "rentroom", "test2"]
 
   return (
     <S.WorkRoot>
@@ -68,19 +67,17 @@ const Work = () => {
             )
           }
         })}
-
         {showTileDescription && (
           <>
-            <S.TileDecription unmoutingSelection={unmoutingSelection}>
-              <h1>Lorem Ipsum Dolorum</h1>
-              <h2>Lorem Ipsum Dolorum Ignolospom</h2>
-              <h3>Lorem Ipsum Dolorum Ignolospom</h3>
-            </S.TileDecription>
-            <h1 onClick={handleDeselection}>x</h1>
+            {!!selectedProject && (
+              <Project
+                handleDeselection={handleDeselection}
+                project={selectedProject}
+              />
+            )}
           </>
         )}
       </S.WorkTilesContainer>
-      {selectedProject === "avantstay" && <ProjectAvantStay />}
     </S.WorkRoot>
   )
 }

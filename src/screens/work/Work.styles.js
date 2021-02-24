@@ -1,11 +1,12 @@
 import styled, { keyframes, css } from "styled-components"
 
 const workTileIn = keyframes`
-  0% {opacity: 0; transform:  scale(.75); width: 0%}
+  0% {opacity: 0; transform:  scale(.75); width: 0%; margin-right: 0px;}
+  24% {opacity: 0};
 `
 
 const workTileOut = keyframes`
-  50% {opacity: 0; transform:  scale(.75); width: 30%; margin-right: 3%;};
+  50% {opacity: 0}
   100% {opacity: 0; transform:  scale(.75); width: 0px; margin-right: 0px;}
 `
 
@@ -19,7 +20,7 @@ export const WorkRoot = styled.div`
 `
 
 export const LogoImg = styled.img`
-  width: 50%;
+  width: ${(p) => (p.larger ? "60%" : "50%")};
   opacity: 0.4;
   transition: 0.6s;
 `
@@ -37,14 +38,11 @@ export const WorkTilesContainer = styled.div`
   display: flex;
   align-items: stretch;
   width: 70vw;
-  height: calc(70vw * 0.33 - 40px);
+  height: calc(70vw * 0.3);
+  max-height: 300px;
   max-width: 1000px;
   margin-bottom: 40px;
-`
-
-export const TileDecription = styled.div`
-  width: 60%;
-  margin-left: 6%;
+  position: relative;
 `
 
 export const WorkTileRoot = styled.div`
@@ -60,7 +58,7 @@ export const WorkTileRoot = styled.div`
   transition: 0.2s ease-in;
   animation-name: ${(p) => (p.animateOut ? workTileOut : workTileIn)};
   animation-delay: ${(p) => (p.animateOut ? 0 : p.index / 6)}s;
-  animation-duration: 1.2s;
+  animation-duration: 1s;
   animation-fill-mode: ${(p) => (p.animateOut ? "forwards" : "backwards")};
 
   &:hover {

@@ -3,19 +3,49 @@
   src: url("./assets/fonts/Lexend-Regular.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: "SpaceMono";
+  font-weight: 400;
+  src: url("./assets/fonts/SpaceMono-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "SpaceMono-Italic";
+  font-style: italic;
+  font-weight: 400;
+  src: url("./assets/fonts/SpaceMono-Italic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "SpaceMono";
+  font-weight: 500;
+  src: url("./assets/fonts/SpaceMono-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "SpaceMono";
+  font-style: italic;
+  font-weight: 500;
+  src: url("./assets/fonts/SpaceMono-BoldItalic.ttf") format("truetype");
+}
+
 body {
   margin: 0;
-  font-family: "Lexend";
+  font-family: "SpaceMono";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  cursor: none;
+  cursor: none !important;
+}
+
+* {
+  cursor: none !important;
 }
 
 h1,
 h2,
 h3,
 p {
-  font-family: "Lexend";
+  font-family: "SpaceMono";
   color: white;
   margin: 0;
 }
