@@ -46,7 +46,12 @@ export const WorkTilesContainer = styled.div`
 `
 
 export const WorkTileRoot = styled.div`
-  background: rgba(255, 255, 255, 0.1);
+  background: linear-gradient(
+    310deg,
+    rgba(255, 255, 255, 0.35),
+    rgba(255, 255, 255, 0.1)
+  );
+  filter: contrast(0.6);
   margin-right: 3%;
   width: 30%;
   border-radius: 10px;
@@ -62,13 +67,12 @@ export const WorkTileRoot = styled.div`
   animation-fill-mode: ${(p) => (p.animateOut ? "forwards" : "backwards")};
 
   &:hover {
-    background: rgba(255, 255, 255, 0.2);
+    filter: contrast(1);
   }
 
   &:hover > ${LogoImg} {
     opacity: 0.75;
-    width: 55%;
-    transform: translateY(-20px);
+    transform: translateY(-20px) scale(0.95);
   }
 
   &:hover > ${Title} {
@@ -79,11 +83,10 @@ export const WorkTileRoot = styled.div`
   ${(p) =>
     p.selected &&
     css`
-      background: rgba(255, 255, 255, 0.2);
+      filter: contrast(1);
       & > ${LogoImg} {
         opacity: 0.75;
-        width: 55%;
-        transform: translateY(-20px);
+        transform: translateY(-20px) scale(0.95);
       }
       & > ${Title} {
         opacity: 0.5;

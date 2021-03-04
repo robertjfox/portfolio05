@@ -1,5 +1,4 @@
 import styled, { keyframes } from "styled-components"
-import Tilt from "react-tilt"
 
 const containerSlideIn = keyframes`
   0% { transform: translateX(-85px);}
@@ -27,14 +26,6 @@ const imageSlideOut = keyframes`
   100% { transform: translateX(30%); opacity: 0;}
 `
 
-export const TiltContainer = styled(Tilt)`
-  position: absolute;
-  height: 200vh;
-  width: 200vw;
-  top: -50vh;
-  left: -50vw;
-`
-
 export const LandingRoot = styled.div`
   position: absolute;
   top: 50%;
@@ -51,7 +42,7 @@ export const HeadshotCont = styled.div`
 
 export const Headshot = styled.img`
   height: 100%;
-  opacity: 0.5;
+  opacity: 0.75;
   margin-right: 30px;
   filter: grayscale(1) contrast(1.25);
   border-radius: 10px;
