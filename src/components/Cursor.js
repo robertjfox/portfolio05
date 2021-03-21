@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import styled, { keyframes } from "styled-components"
+import styled, { css } from "styled-components"
 
 const useMousePosition = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 })
@@ -16,8 +16,11 @@ const useMousePosition = () => {
   return position
 }
 
-const cursorPulse = keyframes`
-    50% {background: rgba(255, 255, 255, 0.7); }
+const linkHoveredStyle = css`
+  background: white;
+  height: 20px;
+  width: 20px;
+  mix-blend-mode: difference;
 `
 
 const CursorRoot = styled.div`
@@ -28,15 +31,27 @@ const CursorRoot = styled.div`
   position: absolute;
   border-radius: 50%;
   z-index: 100;
-  animation-name: ${cursorPulse};
-  animation-duration: 4s;
-  animation-iteration-count: infinite;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  ${(p) => p.linkHovered && linkHoveredStyle};
 `
 
 const Cursor = () => {
-  const { x, y } = useMousePosition()
+  const handleLinkHoverEvents = () => {
+    document.querySelectorAll("#link").forEach((el) => {
+      el.addEventListener("mouseover", () => setLinkHovered(true))
+      el.addEventListener("mouseout", () => setLinkHovered(false))
+    })
+  }
 
-  return <CursorRoot style={{ left: x, top: y }} />
+  useEffect(() => {
+    handleLinkHoverEvents()
+  }, [handleLinkHoverEvents])
+
+  const { x, y } = useMousePosition()
+  const [linkHovered, setLinkHovered] = useState(false)
+
+  return <CursorRoot style={{ left: x, top: y }} linkHovered={linkHovered} />
 }
 
 export default Cursor

@@ -43,6 +43,7 @@ const Social = () => {
           href={`mailto:${"robertjfox94@gmail.com"}`}
           target="_blank"
           rel="noopener noreferrer"
+          id="link"
         >
           <img src={process.env.PUBLIC_URL + contact} alt="contact" />
         </a>
@@ -52,6 +53,7 @@ const Social = () => {
           href="https://github.com/robertjfox"
           target="_blank"
           rel="noopener noreferrer"
+          id="link"
         >
           <img src={process.env.PUBLIC_URL + github} alt="contact" />
         </a>
@@ -61,6 +63,7 @@ const Social = () => {
           href="https://www.linkedin.com/in/robert-fox-1b341996/"
           target="_blank"
           rel="noopener noreferrer"
+          id="link"
         >
           <img src={process.env.PUBLIC_URL + linkedin} alt="contact" />
         </a>

@@ -1,14 +1,20 @@
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
 import React from "react"
 import headshot from "~/assets/images/headshot.jpg"
 
+const avatarIn = keyframes`
+  0% {transform: scale(0.7); opacity: 0;}
+`
+
 const AvatarRoot = styled.div`
   border-radius: 50%;
-  height: 90px;
-  width: 90px;
+  height: 75px;
+  width: 75px;
   position: absolute;
   top: 40px;
   left: 40px;
+  animation-name: ${avatarIn};
+  animation-duration: 1s;
 `
 
 export const Headshot = styled.img`

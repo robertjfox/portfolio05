@@ -20,4 +20,6 @@ export const AppContent = styled.div`
   position: absolute;
   z-index: 3;
   display: flex;
+  justify-content: center;
+  align-items: center;
 `

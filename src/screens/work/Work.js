@@ -19,6 +19,7 @@ const WorkTile = ({
       index={index}
       onClick={() => handleSelection(project, index)}
       selected={selected}
+      id={"link"}
     >
       <S.LogoImg src={logo} larger={project === "rentroom"} />
       <S.Title>{title}</S.Title>
@@ -26,17 +27,19 @@ const WorkTile = ({
   )
 }
 
-const Work = () => {
+const Work = ({ unmounting }) => {
   const [selectedTile, setSelectedTile] = useState("")
   const [selectedProject, setSelectedProject] = useState("")
   const [showTileDescription, setShowTileDescription] = useState(false)
+  const [unmountFromProject, setUnmountFromProject] = useState(false)
+  const unmountNoProject = unmounting && !selectedTile
 
   const handleSelection = (project, index) => {
     setSelectedTile(project)
     setSelectedProject(project)
     setTimeout(() => {
       setShowTileDescription(true)
-    }, 600 + index * 200)
+    }, 600 + index * 300)
   }
 
   const handleDeselection = () => {
@@ -51,7 +54,7 @@ const Work = () => {
 
   return (
     <S.WorkRoot>
-      <S.WorkTilesContainer>
+      <S.WorkTilesContainer unmounting={unmountNoProject}>
         {PROJECT_NAMES.map((project, index) => {
           const selected = selectedTile === project
 
@@ -60,7 +63,11 @@ const Work = () => {
               <WorkTile
                 index={index}
                 project={project}
-                animateOut={!!selectedTile && !selected}
+                animateOut={
+                  unmountFromProject ||
+                  unmountNoProject ||
+                  (!!selectedTile && !selected)
+                }
                 selected={selected}
                 handleSelection={handleSelection}
               />
@@ -73,6 +80,8 @@ const Work = () => {
               <Project
                 handleDeselection={handleDeselection}
                 project={selectedProject}
+                unmounting={unmounting}
+                setUnmountFromProject={setUnmountFromProject}
               />
             )}
           </>

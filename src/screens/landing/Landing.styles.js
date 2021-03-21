@@ -27,12 +27,8 @@ const imageSlideOut = keyframes`
 `
 
 export const LandingRoot = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
   display: flex;
   align-items: center;
-  transform: translateX(-50%) translateY(-50%);
   height: 200px;
 `
 
@@ -46,21 +42,20 @@ export const Headshot = styled.img`
   margin-right: 30px;
   filter: grayscale(1) contrast(1.25);
   border-radius: 10px;
-  animation-name: ${(p) =>
-    p.theme.isUnmounting ? imageSlideOut : imageSlideIn};
-  animation-delay: ${(p) => (p.theme.isUnmounting ? "0s" : "2.4s")};
-  animation-duration: ${(p) => (p.theme.isUnmounting ? "0.3s" : "0.6s")};
+  animation-name: ${(p) => (p.theme.unmounting ? imageSlideOut : imageSlideIn)};
+  animation-delay: ${(p) => (p.theme.unmounting ? "0s" : "2.4s")};
+  animation-duration: ${(p) => (p.theme.unmounting ? "0.3s" : "0.6s")};
   animation-fill-mode: ${(p) =>
-    p.theme.isUnmounting ? "forwards" : "backwards"};
+    p.theme.unmounting ? "forwards" : "backwards"};
 `
 
 export const TextCont = styled.div`
   animation-name: ${(p) =>
-    p.theme.isUnmounting ? containerSlideOut : containerSlideIn};
-  animation-delay: ${(p) => (p.theme.isUnmounting ? "0s" : "2.4s")};
-  animation-duration: ${(p) => (p.theme.isUnmounting ? "0.3s" : "0.6s")};
+    p.theme.unmounting ? containerSlideOut : containerSlideIn};
+  animation-delay: ${(p) => (p.theme.unmounting ? "0s" : "2.4s")};
+  animation-duration: ${(p) => (p.theme.unmounting ? "0.3s" : "0.6s")};
   animation-fill-mode: ${(p) =>
-    p.theme.isUnmounting ? "forwards" : "backwards"};
+    p.theme.unmounting ? "forwards" : "backwards"};
 `
 
 export const CharsCont = styled.div`
@@ -72,14 +67,14 @@ export const CharsCont = styled.div`
 `
 
 export const Char = styled.p`
-  animation-name: ${(p) => (p.theme.isUnmounting ? charSlideOut : charSlideIn)};
+  animation-name: ${(p) => (p.theme.unmounting ? charSlideOut : charSlideIn)};
   animation-delay: ${(p) =>
-    (p.index / 20 + (p.theme.isUnmounting ? 0 : p.baseDelay / 1.3)) *
-      (p.theme.isUnmounting ? 0.5 : 1) +
-    (p.theme.isUnmounting ? 0.2 : 0)}s;
-  animation-duration: ${(p) => (p.theme.isUnmounting ? "0.3s" : "0.4s")};
+    (p.index / 20 + (p.theme.unmounting ? 0 : p.baseDelay / 1.3)) *
+      (p.theme.unmounting ? 0.5 : 1) +
+    (p.theme.unmounting ? 0.2 : 0)}s;
+  animation-duration: ${(p) => (p.theme.unmounting ? "0.3s" : "0.4s")};
   animation-fill-mode: ${(p) =>
-    p.theme.isUnmounting ? "forwards" : "backwards"};
+    p.theme.unmounting ? "forwards" : "backwards"};
   font-size: 40px;
   ${(p) => p.space && "width: 20px"};
   opacity: 0.75;

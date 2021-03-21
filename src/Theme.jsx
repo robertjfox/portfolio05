@@ -3,10 +3,10 @@ import { ThemeProvider } from "styled-components"
 import { MountingContext } from "~/App"
 
 const Theme = ({ children }) => {
-  const isUnmounting = useContext(MountingContext)
+  const unmounting = useContext(MountingContext)
 
   const theme = {
-    isUnmounting,
+    unmounting,
     colors: {
       accent: "#1DA1F2",
       black: "#14171A",

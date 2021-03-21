@@ -15,6 +15,7 @@ const NavItem = styled.p`
   margin-right: 30px;
   opacity: 0.5;
   transition: 0.15s ease-in;
+  ${(p) => p.selected && "opacity: 1;"}
 
   &:hover {
     opacity: 1;
@@ -28,17 +29,35 @@ const Line = styled.div`
   opacity: 0.5;
 `
 
-const TopNav = ({ setScreen }) => {
+const TopNav = ({ setScreen, navSelection }) => {
   return (
     <TopNavRoot>
       <Fade down delay={3000}>
-        <NavItem onClick={() => setScreen("about")}>ABOUT</NavItem>
+        <NavItem
+          onClick={() => setScreen("about")}
+          selected={navSelection === "about"}
+          id="link"
+        >
+          ABOUT
+        </NavItem>
       </Fade>
       <Fade down delay={3200}>
-        <NavItem onClick={() => setScreen("work")}>WORK</NavItem>
+        <NavItem
+          onClick={() => setScreen("work")}
+          selected={navSelection === "work"}
+          id="link"
+        >
+          WORK
+        </NavItem>
       </Fade>
       <Fade down delay={3400}>
-        <NavItem onClick={() => setScreen("contact")}>CONTACT</NavItem>
+        <NavItem
+          onClick={() => setScreen("contact")}
+          selected={navSelection === "contact"}
+          id="link"
+        >
+          CONTACT
+        </NavItem>
       </Fade>
       <Fade right delay={3600}>
         <Line />

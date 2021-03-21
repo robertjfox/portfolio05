@@ -2,12 +2,12 @@ import Social from "./Social"
 import TopNav from "./TopNav"
 import Avatar from "./Avatar"
 
-const Navigation = ({ setScreen }) => {
+const Navigation = ({ setScreen, screen, navSelection }) => {
   return (
     <>
-      <Avatar />
+      {screen !== "landing" && <Avatar />}
       <Social />
-      <TopNav setScreen={setScreen} />
+      <TopNav setScreen={setScreen} navSelection={navSelection} />
     </>
   )
 }

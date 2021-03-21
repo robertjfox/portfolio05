@@ -54,7 +54,7 @@ export const Role = styled.h1`
 
 export const Dates = styled.h3`
   animation-name: ${(p) => (p.unmounting ? fadeOut : fadeIn)};
-  animation-delay: ${(p) => (p.unmounting ? "0.15s" : "0.15s")};
+  animation-delay: ${(p) => (p.unmounting ? "0.15s" : "0.05s")};
   animation-duration: 0.15s;
   opacity: 1;
   animation-fill-mode: ${(p) => (p.unmounting ? "forwards" : "backwards")};
@@ -62,7 +62,7 @@ export const Dates = styled.h3`
 
 export const Description = styled.p`
   animation-name: ${(p) => (p.unmounting ? fadeOut : fadeIn)};
-  animation-delay: ${(p) => (p.unmounting ? "0s" : "0.3s")};
+  animation-delay: ${(p) => (p.unmounting ? "0s" : "0.1s")};
   animation-duration: 0.15s;
   opacity: 1;
   animation-fill-mode: ${(p) => (p.unmounting ? "forwards" : "backwards")};

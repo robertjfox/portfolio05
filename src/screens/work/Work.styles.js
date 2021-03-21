@@ -1,21 +1,27 @@
 import styled, { keyframes, css } from "styled-components"
 
+const workContIn = keyframes`
+  0% {transform: translateX(50%); height: 15%;};
+`
+
+const workContOut = keyframes`
+  100% {transform: translateX(50%); height: 15%;};
+`
+
 const workTileIn = keyframes`
-  0% {opacity: 0; transform:  scale(.75); width: 0%; margin-right: 0px;}
+  0% {opacity: 0; transform: scale(.75); width: 0%;  margin-right: 0px;}
   24% {opacity: 0};
 `
 
 const workTileOut = keyframes`
-  50% {opacity: 0}
-  100% {opacity: 0; transform:  scale(.75); width: 0px; margin-right: 0px;}
+  40% {opacity: 0};
+  100% {opacity: 0; transform: scale(.75); width: 0px; margin-right: 0px;}
 `
 
 export const WorkRoot = styled.div`
-  height: 100vh;
-  width: 100vw;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  height: 100vh;
   justify-content: center;
 `
 
@@ -43,6 +49,8 @@ export const WorkTilesContainer = styled.div`
   max-width: 1000px;
   margin-bottom: 40px;
   position: relative;
+  animation-name: ${(p) => (p.unmounting ? workContOut : workContIn)};
+  animation-duration: 1s;
 `
 
 export const WorkTileRoot = styled.div`
@@ -62,7 +70,7 @@ export const WorkTileRoot = styled.div`
   position: relative;
   transition: 0.2s ease-in;
   animation-name: ${(p) => (p.animateOut ? workTileOut : workTileIn)};
-  animation-delay: ${(p) => (p.animateOut ? 0 : p.index / 6)}s;
+  animation-delay: 0s;
   animation-duration: 1s;
   animation-fill-mode: ${(p) => (p.animateOut ? "forwards" : "backwards")};
 

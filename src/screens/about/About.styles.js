@@ -1,83 +1,73 @@
 import styled, { keyframes, css } from "styled-components"
 
-const fadeIn = keyframes`
-  0% {transform: scale(.8); opacity: 0;}
+const leftSlideIn = keyframes`
+  0% {transform: translateX(150px); opacity: 0;}
 `
 
-const rotateText1 = keyframes`
-  0% {transform:  rotate(0deg)}
-  100% {transform:  rotate(360deg)}
+const leftSlideOut = keyframes`
+  100% {transform: translateX(150px); opacity: 0;}
 `
 
-const rotateText2 = keyframes`
-  0% {transform:  rotate(120deg)}
-  100% {transform:  rotate(480deg)}
+const rightSlideIn = keyframes`
+  0% {transform: translateX(-150px); opacity: 0;}
 `
 
-const rotateText3 = keyframes`
-  0% {transform:  rotate(240deg)}
-  100% {transform:  rotate(600deg)}
+const rightSlideOut = keyframes`
+  100% {transform: translateX(-150px); opacity: 0;}
+`
+
+const textSlideIn = keyframes`
+  0% {transform: translateY(10px); opacity: 0;}
+`
+
+const textSlideOut = keyframes`
+  100% {transform: translateY(-10px); opacity: 0;}
 `
 
 export const AboutRoot = styled.div`
-  height: 100vh;
-  width: 100vw;
   display: flex;
+`
+
+export const BracketLeft = styled.div`
+  font-size: 300px;
+  color: white;
+  margin-right: 10px;
+  margin-top: -70px;
+  opacity: 0.1;
+  font-family: -apple-system, BlinkMacSystemFont;
+  animation-name: ${(p) => (p.theme.unmounting ? leftSlideOut : leftSlideIn)};
+  animation-duration: ${(p) => (p.theme.unmounting ? 0.3 : 0.45)}s;
+  animation-fill-mode: ${(p) =>
+    p.theme.unmounting ? "forwards" : "backwards"};
+  ${(p) => p.theme.unmounting && "animation-delay: 0.35s"};
+`
+
+export const BracketRight = styled.div`
+  font-size: 300px;
+  color: white;
+  margin-left: 10px;
+  margin-top: -70px;
+  opacity: 0.1;
+  font-family: -apple-system, BlinkMacSystemFont;
+  animation-name: ${(p) => (p.theme.unmounting ? rightSlideOut : rightSlideIn)};
+  animation-duration: ${(p) => (p.theme.unmounting ? 0.3 : 0.45)}s;
+  animation-fill-mode: ${(p) =>
+    p.theme.unmounting ? "forwards" : "backwards"};
+  ${(p) => p.theme.unmounting && "animation-delay: 0.35s"};
+`
+
+export const KeyValueContainer = styled.div`
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
 `
 
-export const Circle = styled.div`
-  border-radius: 50%;
-  height: 400px;
-  width: 400px;
-  position: relative;
-  /* display: flex; */
-  /* justify-content: center; */
-  align-items: center;
-  animation-name: ${fadeIn};
-  animation-duration: 0.3s;
-  background: linear-gradient(
-    310deg,
-    rgba(255, 255, 255, 0.25),
-    rgba(255, 255, 255, 0.05)
-  ); ;
-`
-
-export const Tab = styled.p`
-  letter-spacing: 3px;
-  text-align: center;
-  width: 100px;
-  font-size: 2rem;
-  opacity: 0.2;
-  transition: 0.3s;
-  position: absolute;
-  bottom: 50%;
-  left: calc(50% - 50px);
-  ${(p) =>
-    p.index === 1 &&
-    css`
-      animation-name: ${rotateText1};
-    `};
-  ${(p) =>
-    p.index === 2 &&
-    css`
-      animation-name: ${rotateText2};
-    `};
-  ${(p) =>
-    p.index === 3 &&
-    css`
-      animation-name: ${rotateText3};
-    `};
-  animation-duration: 30s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  transform-origin: bottom center;
-  height: 260px;
-
-  ${(p) =>
-    p.selected &&
-    `
-    opacity: 0.6;
-  `}
+export const KeyValue = styled.p`
+  font-size: 1.25rem;
+  margin: 10px 0;
+  animation-name: ${(p) => (p.theme.unmounting ? textSlideOut : textSlideIn)};
+  animation-duration: ${(p) => (p.theme.unmounting ? 0.3 : 0.45)}s;
+  animation-fill-mode: ${(p) =>
+    p.theme.unmounting ? "forwards" : "backwards"};
+  animation-delay: ${(p) => (p.theme.unmounting ? 0 : p.index / 6 + 0.3)}s;
 `
