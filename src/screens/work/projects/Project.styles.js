@@ -22,6 +22,13 @@ export const TileDecription = styled.div`
   display: flex;
   flex-direction: column;
   height: 70vw * 0.3;
+
+  @media (max-width: 550px) {
+    box-sizing: border-box;
+    width: 100vw;
+    margin: 0;
+    padding: 30px;
+  }
 `
 
 export const CloseButton = styled.div`
@@ -38,6 +45,11 @@ export const CloseButton = styled.div`
   top: 10px;
   right: 10px;
   transition: 0.15s ease-in;
+
+  @media (max-width: 550px) {
+    top: 30px;
+    right: 30px;
+  }
 
   &:hover {
     background: rgba(255, 255, 255, 0.4);
@@ -81,4 +93,11 @@ export const Button = styled.img`
   animation-delay: ${(p) => `${p.unmounting ? 0 : 0.3 + p.index / 10}s`};
   animation-duration: 0.25s;
   animation-fill-mode: ${(p) => (p.unmounting ? "forwards" : "backwards")};
+  opacity: 0.7;
+  transition: 0.15s;
+
+  &:hover {
+    opacity: 1;
+    transform: scale(1.1);
+  }
 `

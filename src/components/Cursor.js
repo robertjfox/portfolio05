@@ -34,6 +34,10 @@ const CursorRoot = styled.div`
   pointer-events: none;
   transform: translate(-50%, -50%);
   ${(p) => p.linkHovered && linkHoveredStyle};
+
+  @media (max-width: 550px) {
+    display: none;
+  }
 `
 
 const Cursor = () => {

@@ -3,6 +3,7 @@ import * as S from "./Project.styles"
 import PROJECT_DATA from "../Work.data"
 import iconWebsite from "~/assets/icons/iconWebsite.png"
 import iconPhotos from "~/assets/icons/iconPhotos.png"
+import { PhotoViewer } from "~/screens/work/photoViewer/PhotoViewer"
 
 const ProjectAvantStay = ({
   handleDeselection,
@@ -11,8 +12,9 @@ const ProjectAvantStay = ({
   setUnmountFromProject,
 }) => {
   const projectData = PROJECT_DATA[project]
-  const { role, dates, description } = projectData
+  const { role, dates, description, url, photos } = projectData
   const [unmountingLocal, setUnmountingLocal] = useState(false)
+  const [showPhotos, setShowPhotos] = useState(false)
 
   const _handleDeselection = () => {
     setUnmountingLocal(true)
@@ -39,12 +41,7 @@ const ProjectAvantStay = ({
         </S.Description>
         <br />
         <S.ButtonRow>
-          <a
-            href="https://www.linkedin.com/in/robert-fox-1b341996/"
-            target="_blank"
-            rel="noopener noreferrer"
-            id="link"
-          >
+          <a href={url} target="_blank" rel="noopener noreferrer" id="link">
             <S.Button
               src={process.env.PUBLIC_URL + iconWebsite}
               alt="contact"
@@ -52,26 +49,22 @@ const ProjectAvantStay = ({
               index={0}
             />
           </a>
-
-          <a
-            href="https://www.linkedin.com/in/robert-fox-1b341996/"
-            target="_blank"
-            rel="noopener noreferrer"
-            id="link"
-          >
-            <S.Button
-              src={process.env.PUBLIC_URL + iconPhotos}
-              alt="contact"
-              unmounting={unmountingLocal}
-              index={1}
-            />
-          </a>
+          <S.Button
+            src={process.env.PUBLIC_URL + iconPhotos}
+            alt="contact"
+            unmounting={unmountingLocal}
+            index={1}
+            onClick={() => setShowPhotos(true)}
+          />
         </S.ButtonRow>
       </S.TileDecription>
       <S.CloseButton id="link" onClick={_handleDeselection}>
         {" "}
         X{" "}
       </S.CloseButton>
+      {showPhotos && (
+        <PhotoViewer photos={photos} onClose={() => setShowPhotos(false)} />
+      )}
     </>
   )
 }

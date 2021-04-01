@@ -15,6 +15,10 @@ const AvatarRoot = styled.div`
   left: 40px;
   animation-name: ${avatarIn};
   animation-duration: 1s;
+
+  @media (max-width: 550px) {
+    display: none;
+  }
 `
 
 export const Headshot = styled.img`

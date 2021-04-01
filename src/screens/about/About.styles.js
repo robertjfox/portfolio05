@@ -40,6 +40,10 @@ export const BracketLeft = styled.div`
   animation-fill-mode: ${(p) =>
     p.theme.unmounting ? "forwards" : "backwards"};
   ${(p) => p.theme.unmounting && "animation-delay: 0.35s"};
+
+  @media (max-width: 550px) {
+    display: none;
+  }
 `
 
 export const BracketRight = styled.div`
@@ -54,6 +58,10 @@ export const BracketRight = styled.div`
   animation-fill-mode: ${(p) =>
     p.theme.unmounting ? "forwards" : "backwards"};
   ${(p) => p.theme.unmounting && "animation-delay: 0.35s"};
+
+  @media (max-width: 550px) {
+    display: none;
+  }
 `
 
 export const KeyValueContainer = styled.div`

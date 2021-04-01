@@ -26,6 +26,10 @@ const SocialRoot = styled.div`
       opacity: 1;
     }
   }
+
+  @media (max-width: 550px) {
+    display: none;
+  }
 `
 
 const Line = styled.div`

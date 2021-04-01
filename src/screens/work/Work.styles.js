@@ -51,12 +51,21 @@ export const WorkTilesContainer = styled.div`
   position: relative;
   animation-name: ${(p) => (p.unmounting ? workContOut : workContIn)};
   animation-duration: 1s;
+
+  @media (max-width: 550px) {
+    flex-direction: column;
+    max-height: unset;
+    height: 70vh;
+    width: 100vw;
+    align-items: center;
+    justify-content: space-between;
+  }
 `
 
 export const WorkTileRoot = styled.div`
   background: linear-gradient(
     310deg,
-    rgba(255, 255, 255, 0.35),
+    rgba(255, 255, 255, 0.25),
     rgba(255, 255, 255, 0.1)
   );
   filter: contrast(0.6);
@@ -73,6 +82,11 @@ export const WorkTileRoot = styled.div`
   animation-delay: 0s;
   animation-duration: 1s;
   animation-fill-mode: ${(p) => (p.animateOut ? "forwards" : "backwards")};
+
+  @media (max-width: 550px) {
+    height: 30%;
+    width: calc(70vh * 0.3);
+  }
 
   &:hover {
     filter: contrast(1);

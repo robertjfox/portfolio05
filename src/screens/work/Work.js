@@ -1,7 +1,8 @@
-import React, { useState } from "react"
+import React, { useImperativeHandle, useState } from "react"
 import * as S from "./Work.styles"
 import PROJECT_DATA from "./Work.data"
 import Project from "./projects/Project"
+import { useIsPhoneScreen } from "~/hooks/useIsPhoneScreen"
 
 const WorkTile = ({
   index,
@@ -34,6 +35,8 @@ const Work = ({ unmounting }) => {
   const [unmountFromProject, setUnmountFromProject] = useState(false)
   const unmountNoProject = unmounting && !selectedTile
 
+  const isPhoneScreen = useIsPhoneScreen()
+
   const handleSelection = (project, index) => {
     setSelectedTile(project)
     setSelectedProject(project)
@@ -50,13 +53,13 @@ const Work = ({ unmounting }) => {
     }, 400)
   }
 
-  const PROJECT_NAMES = ["avantstay", "rentroom", "test2"]
+  const PROJECT_NAMES = ["avantstay", "rentroom", "cultivateFruits"]
 
   return (
     <S.WorkRoot>
       <S.WorkTilesContainer unmounting={unmountNoProject}>
         {PROJECT_NAMES.map((project, index) => {
-          const selected = selectedTile === project
+          const selected = selectedTile === project && !isPhoneScreen
 
           if (!showTileDescription || selected) {
             return (

@@ -1,11 +1,30 @@
-import styled, { css } from "styled-components"
+import styled, { css, keyframes } from "styled-components"
 
-export const ContactRoot = styled.div`
+const slideIn = keyframes`
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+`
+
+const slideOut = keyframes`
+  100% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+`
+
+export const ContactRoot = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 50vw;
   max-width: 500px;
+
+  @media (max-width: 550px) {
+    width: 100vw;
+    padding: 0 20px;
+  }
 `
 
 const inputStyle = css`
@@ -43,12 +62,21 @@ const inputStyle = css`
 export const EmailInput = styled.input`
   width: 50%;
   ${inputStyle}
+  animation-name: ${(p) => (p.theme.unmounting ? slideOut : slideIn)};
+  animation-duration: 0.4s;
+  animation-fill-mode: ${(p) =>
+    p.theme.unmounting ? "forwards" : "backwards"};
 `
 
 export const TextArea = styled.textarea`
   flex-grow: 1;
   resize: none;
   ${inputStyle}
+  animation-name: ${(p) => (p.theme.unmounting ? slideOut : slideIn)};
+  animation-delay: 0.15s;
+  animation-duration: 0.4s;
+  animation-fill-mode: ${(p) =>
+    p.theme.unmounting ? "forwards" : "backwards"};
 `
 
 export const SubmitButton = styled.button`
@@ -61,6 +89,11 @@ export const SubmitButton = styled.button`
   border: none;
   transition: 0.15s;
   border-radius: 5px;
+  animation-name: ${(p) => (p.theme.unmounting ? slideOut : slideIn)};
+  animation-delay: 0.3s;
+  animation-duration: 0.4s;
+  animation-fill-mode: ${(p) =>
+    p.theme.unmounting ? "forwards" : "backwards"};
 
   &:hover {
     background: rgba(255, 255, 255, 0.45);
