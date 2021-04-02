@@ -1,12 +1,15 @@
 import React from "react"
 import * as S from "./PhotoViewer.styles"
+import { useIsPhoneScreen } from "~/hooks/useIsPhoneScreen"
 
 export const PhotoViewer = ({ photos, onClose }) => {
+  const isPhoneScreen = useIsPhoneScreen()
+
   var settings = {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 1.5,
+    slidesToShow: isPhoneScreen ? 1 : 1.5,
     slidesToScroll: 1,
   }
 

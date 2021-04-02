@@ -1,5 +1,6 @@
 import React from "react"
 import * as S from "./About.styles"
+import headshot from "~/assets/images/headshot.jpg"
 
 const About = () => {
   return (
@@ -16,6 +17,23 @@ const About = () => {
         </S.KeyValue>
       </S.KeyValueContainer>
       <S.BracketRight>{`}`}</S.BracketRight>
+      <S.AboutMobile>
+        <S.Headshot src={headshot} />
+        Hello! My Name is Robert Fox and I am a web developer and designer based
+        in Los Angeles, CA.
+        <br />
+        <br />I have a passion for designing and developing seamless user
+        experiences and vibrant digital products. I am a natural communicator,
+        effective problem solver and enjoy working on teams, both large and
+        small. I also have a formal graphic design background, and a a strong
+        attention to detail.
+        <br />
+        <br />I have a passion for designing and developing seamless user
+        experiences and vibrant digital products. I am a natural communicator,
+        effective problem solver and enjoy working on teams, both large and
+        small. I also have a formal graphic design background, and a a strong
+        attention to detail.
+      </S.AboutMobile>
     </S.AboutRoot>
   )
 }

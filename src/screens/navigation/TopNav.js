@@ -9,6 +9,10 @@ const TopNavRoot = styled.div`
   right: 0px;
   top: 40px;
   z-index: 99;
+
+  @media (max-width: 550px) {
+    position: absolute;
+  }
 `
 
 const NavItem = styled.p`

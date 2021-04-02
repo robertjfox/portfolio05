@@ -34,6 +34,10 @@ export const LandingRoot = styled.div`
 
 export const HeadshotCont = styled.div`
   height: 100%;
+
+  @media (max-width: 550px) {
+    display: none;
+  }
 `
 
 export const Headshot = styled.img`
@@ -56,6 +60,10 @@ export const TextCont = styled.div`
   animation-duration: ${(p) => (p.theme.unmounting ? "0.3s" : "0.6s")};
   animation-fill-mode: ${(p) =>
     p.theme.unmounting ? "forwards" : "backwards"};
+
+  @media (max-width: 550px) {
+    animation: none;
+  }
 `
 
 export const CharsCont = styled.div`
@@ -78,4 +86,8 @@ export const Char = styled.p`
   font-size: 40px;
   ${(p) => p.space && "width: 20px"};
   opacity: 0.75;
+
+  @media (max-width: 550px) {
+    font-size: 30px;
+  }
 `

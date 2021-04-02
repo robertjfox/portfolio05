@@ -1,9 +1,9 @@
 import styled from "styled-components"
 import rgba from "hex-to-rgba"
+import Div100vh from "react-div-100vh"
 
-export const AppRoot = styled.div`
+export const AppRoot = styled(Div100vh)`
   width: 100vw;
-  height: 100vh;
   position: relative;
   background-image: linear-gradient(
     ${(p) => rgba(p.theme.colors.black, "1")},
@@ -14,7 +14,7 @@ export const AppRoot = styled.div`
   overflow: hidden;
 `
 
-export const AppContent = styled.div`
+export const AppContent = styled(Div100vh)`
   width: 100vw;
   height: 100vh;
   position: absolute;

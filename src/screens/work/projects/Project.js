@@ -12,7 +12,7 @@ const ProjectAvantStay = ({
   setUnmountFromProject,
 }) => {
   const projectData = PROJECT_DATA[project]
-  const { role, dates, description, url, photos } = projectData
+  const { role, dates, description, url, photos, technologies } = projectData
   const [unmountingLocal, setUnmountingLocal] = useState(false)
   const [showPhotos, setShowPhotos] = useState(false)
 
@@ -32,14 +32,27 @@ const ProjectAvantStay = ({
 
   return (
     <>
-      <S.TileDecription>
+      <S.ProjectRoot>
         <S.Role unmounting={unmountingLocal}>{role}</S.Role>
         <S.Dates unmounting={unmountingLocal}>{dates}</S.Dates>
         <br />
         <S.Description unmounting={unmountingLocal}>
-          {description}
+          {description.map((par) => {
+            return (
+              <>
+                {par}
+                <br />
+                <br />
+              </>
+            )
+          })}
         </S.Description>
-        <br />
+        <S.TechnologiesCont>
+          {!!technologies &&
+            technologies.map((tech) => (
+              <S.TechnologyName>{tech}</S.TechnologyName>
+            ))}
+        </S.TechnologiesCont>
         <S.ButtonRow>
           <a href={url} target="_blank" rel="noopener noreferrer" id="link">
             <S.Button
@@ -57,7 +70,7 @@ const ProjectAvantStay = ({
             onClick={() => setShowPhotos(true)}
           />
         </S.ButtonRow>
-      </S.TileDecription>
+      </S.ProjectRoot>
       <S.CloseButton id="link" onClick={_handleDeselection}>
         {" "}
         X{" "}

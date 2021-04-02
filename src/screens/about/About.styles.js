@@ -26,6 +26,11 @@ const textSlideOut = keyframes`
 
 export const AboutRoot = styled.div`
   display: flex;
+
+  @media (max-width: 550px) {
+    position: absolute;
+    top: 100px;
+  }
 `
 
 export const BracketLeft = styled.div`
@@ -68,6 +73,9 @@ export const KeyValueContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  @media (max-width: 550px) {
+    display: none;
+  }
 `
 
 export const KeyValue = styled.p`
@@ -78,4 +86,28 @@ export const KeyValue = styled.p`
   animation-fill-mode: ${(p) =>
     p.theme.unmounting ? "forwards" : "backwards"};
   animation-delay: ${(p) => (p.theme.unmounting ? 0 : p.index / 6 + 0.3)}s;
+`
+
+export const AboutMobile = styled.div`
+  @media (min-width: 550px) {
+    display: none;
+  }
+  display: flex;
+  flex-direction: column;
+  color: white;
+  padding: 30px;
+  max-height: 500px;
+  overflow: scroll;
+`
+
+export const Headshot = styled.img`
+  @media (min-width: 550px) {
+    display: none;
+  }
+  height: 240px;
+  width: 250px;
+  filter: grayscale(1);
+  align-self: center;
+  border-radius: 7px;
+  margin-bottom: 30px;
 `

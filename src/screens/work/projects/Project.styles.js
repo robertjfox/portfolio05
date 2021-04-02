@@ -1,4 +1,5 @@
 import styled, { keyframes } from "styled-components"
+import Div100vh from "react-div-100vh"
 
 const fadeIn = keyframes`
   0% {opacity: 0}
@@ -16,18 +17,19 @@ const fadeDown = keyframes`
   100% {opacity: 0; transform: translateY(100%)}
 `
 
-export const TileDecription = styled.div`
+export const ProjectRoot = styled(Div100vh)`
   width: 60%;
   margin-left: 6%;
   display: flex;
   flex-direction: column;
-  height: 70vw * 0.3;
 
   @media (max-width: 550px) {
+    position: absolute;
+    width: 100%;
     box-sizing: border-box;
-    width: 100vw;
+    padding: 120px 20px 20px;
     margin: 0;
-    padding: 30px;
+    overflow: scroll;
   }
 `
 
@@ -47,8 +49,7 @@ export const CloseButton = styled.div`
   transition: 0.15s ease-in;
 
   @media (max-width: 550px) {
-    top: 30px;
-    right: 30px;
+    display: none;
   }
 
   &:hover {
@@ -62,6 +63,11 @@ export const Role = styled.h1`
   animation-duration: 0.15s;
   opacity: 1;
   animation-fill-mode: ${(p) => (p.unmounting ? "forwards" : "backwards")};
+
+  @media (max-width: 550px) {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
 `
 
 export const Dates = styled.h3`
@@ -100,4 +106,19 @@ export const Button = styled.img`
     opacity: 1;
     transform: scale(1.1);
   }
+`
+
+export const TechnologiesCont = styled.div`
+  display: flex;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+`
+
+export const TechnologyName = styled.div`
+  color: white;
+  background: rgba(255, 255, 255, 0.3);
+  margin-right: 15px;
+  margin-bottom: 15px;
+  padding: 5px 10px;
+  border-radius: 7px;
 `

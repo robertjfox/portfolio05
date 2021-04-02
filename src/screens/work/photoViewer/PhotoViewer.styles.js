@@ -37,4 +37,9 @@ export const Slide = styled.div``
 export const SlideImg = styled.img`
   width: 50vw;
   transform: translateX(-8vw);
+
+  @media (max-width: 550px) {
+    width: 100vw;
+    transform: none;
+  }
 `

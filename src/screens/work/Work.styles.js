@@ -21,8 +21,7 @@ const workTileOut = keyframes`
 export const WorkRoot = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  justify-content: center;
+  max-width: 100vw;
 `
 
 export const LogoImg = styled.img`
@@ -44,7 +43,7 @@ export const WorkTilesContainer = styled.div`
   display: flex;
   align-items: stretch;
   width: 70vw;
-  height: calc(70vw * 0.3);
+  height: 22vw;
   max-height: 300px;
   max-width: 1000px;
   margin-bottom: 40px;
@@ -53,12 +52,11 @@ export const WorkTilesContainer = styled.div`
   animation-duration: 1s;
 
   @media (max-width: 550px) {
-    flex-direction: column;
     max-height: unset;
-    height: 70vh;
+    height: auto;
     width: 100vw;
-    align-items: center;
-    justify-content: space-between;
+    overflow: scroll;
+    margin: 0;
   }
 `
 
@@ -84,8 +82,22 @@ export const WorkTileRoot = styled.div`
   animation-fill-mode: ${(p) => (p.animateOut ? "forwards" : "backwards")};
 
   @media (max-width: 550px) {
-    height: 30%;
-    width: calc(70vh * 0.3);
+    height: 50vw;
+    min-width: 50vw;
+    margin: 20px;
+  }
+
+  @media (max-width: 550px) {
+    & ${Title} {
+      opacity: 0.5;
+      top: 90%;
+      font-size: 16px;
+    }
+
+    & ${LogoImg} {
+      opacity: 0.75;
+      transform: translateY(-20px) scale(0.95);
+    }
   }
 
   &:hover {

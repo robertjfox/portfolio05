@@ -56,41 +56,47 @@ const Work = ({ unmounting }) => {
   const PROJECT_NAMES = ["avantstay", "rentroom", "cultivateFruits"]
 
   return (
-    <S.WorkRoot>
-      <S.WorkTilesContainer unmounting={unmountNoProject}>
-        {PROJECT_NAMES.map((project, index) => {
-          const selected = selectedTile === project && !isPhoneScreen
+    <>
+      <S.WorkRoot>
+        <S.WorkTilesContainer unmounting={unmountNoProject}>
+          {PROJECT_NAMES.map((project, index) => {
+            const selected = selectedTile === project && !isPhoneScreen
 
-          if (!showTileDescription || selected) {
-            return (
-              <WorkTile
-                index={index}
-                project={project}
-                animateOut={
-                  unmountFromProject ||
-                  unmountNoProject ||
-                  (!!selectedTile && !selected)
-                }
-                selected={selected}
-                handleSelection={handleSelection}
-              />
-            )
-          }
-        })}
-        {showTileDescription && (
-          <>
-            {!!selectedProject && (
-              <Project
-                handleDeselection={handleDeselection}
-                project={selectedProject}
-                unmounting={unmounting}
-                setUnmountFromProject={setUnmountFromProject}
-              />
-            )}
-          </>
-        )}
-      </S.WorkTilesContainer>
-    </S.WorkRoot>
+            if (!showTileDescription || selected) {
+              return (
+                <WorkTile
+                  index={index}
+                  project={project}
+                  animateOut={
+                    unmountFromProject ||
+                    unmountNoProject ||
+                    (!!selectedTile && !selected)
+                  }
+                  selected={selected}
+                  handleSelection={handleSelection}
+                />
+              )
+            }
+          })}
+          {!!selectedProject && !isPhoneScreen && showTileDescription && (
+            <Project
+              handleDeselection={handleDeselection}
+              project={selectedProject}
+              unmounting={unmounting}
+              setUnmountFromProject={setUnmountFromProject}
+            />
+          )}
+        </S.WorkTilesContainer>
+      </S.WorkRoot>
+      {isPhoneScreen && !!selectedProject && showTileDescription && (
+        <Project
+          handleDeselection={handleDeselection}
+          project={selectedProject}
+          unmounting={unmounting}
+          setUnmountFromProject={setUnmountFromProject}
+        />
+      )}
+    </>
   )
 }
 

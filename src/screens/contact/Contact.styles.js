@@ -38,6 +38,11 @@ const inputStyle = css`
   font-family: "SpaceMono";
   border-radius: 5px;
 
+  @media (max-width: 550px) {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+
   &::placeholder {
     transition: 0.15s;
   }
@@ -94,6 +99,11 @@ export const SubmitButton = styled.button`
   animation-duration: 0.4s;
   animation-fill-mode: ${(p) =>
     p.theme.unmounting ? "forwards" : "backwards"};
+
+  @media (max-width: 550px) {
+    font-size: 16px;
+    padding: 12px;
+  }
 
   &:hover {
     background: rgba(255, 255, 255, 0.45);
