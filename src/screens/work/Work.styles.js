@@ -1,15 +1,15 @@
 import styled, { keyframes, css } from "styled-components"
 
 const workContIn = keyframes`
-  0% {transform: translateX(50%); height: 15%;};
+  0% {transform: translateX(50%); height: 10vw;};
 `
 
 const workContOut = keyframes`
-  100% {transform: translateX(50%); height: 15%;};
+  100% {transform: translateX(50%); height: 10vw;};
 `
 
 const workTileIn = keyframes`
-  0% {opacity: 0; transform: scale(.75); width: 0%;  margin-right: 0px;}
+  0% {opacity: 0; transform: scale(.75); width: 0px;  margin-right: 0px;}
   24% {opacity: 0};
 `
 

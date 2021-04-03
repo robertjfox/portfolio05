@@ -2,14 +2,14 @@ import styled, { css, keyframes } from "styled-components"
 
 const slideIn = keyframes`
   0% {
-    transform: translateY(100px);
+    transform: translateY(50px);
     opacity: 0;
   }
 `
 
 const slideOut = keyframes`
   100% {
-    transform: translateY(-100px);
+    transform: translateY(-50px);
     opacity: 0;
   }
 `

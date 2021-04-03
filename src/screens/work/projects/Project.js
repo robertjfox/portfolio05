@@ -49,8 +49,10 @@ const ProjectAvantStay = ({
         </S.Description>
         <S.TechnologiesCont>
           {!!technologies &&
-            technologies.map((tech) => (
-              <S.TechnologyName>{tech}</S.TechnologyName>
+            technologies.map((tech, index) => (
+              <S.TechnologyName index={index} unmounting={unmountingLocal}>
+                {tech}
+              </S.TechnologyName>
             ))}
         </S.TechnologiesCont>
         <S.ButtonRow>
@@ -68,6 +70,7 @@ const ProjectAvantStay = ({
             unmounting={unmountingLocal}
             index={1}
             onClick={() => setShowPhotos(true)}
+            id="link"
           />
         </S.ButtonRow>
       </S.ProjectRoot>

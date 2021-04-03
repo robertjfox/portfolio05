@@ -88,8 +88,6 @@ export const Description = styled.p`
 
 export const ButtonRow = styled.div`
   display: flex;
-  width: 2;
-  margin-top: auto;
 `
 
 export const Button = styled.img`
@@ -121,4 +119,8 @@ export const TechnologyName = styled.div`
   margin-bottom: 15px;
   padding: 5px 10px;
   border-radius: 7px;
+  animation-name: ${(p) => (p.unmounting ? fadeDown : fadeUp)};
+  animation-delay: ${(p) => `${p.unmounting ? 0 : 0.3 + p.index / 10}s`};
+  animation-duration: 0.25s;
+  animation-fill-mode: ${(p) => (p.unmounting ? "forwards" : "backwards")};
 `
