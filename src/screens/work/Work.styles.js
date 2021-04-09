@@ -1,4 +1,5 @@
 import styled, { keyframes, css } from "styled-components"
+import Div100vh from "react-div-100vh"
 
 const workContIn = keyframes`
   0% {transform: translateX(50%); height: 10vw;};
@@ -18,6 +19,14 @@ const workTileOut = keyframes`
   100% {opacity: 0; transform: scale(.75); width: 0px; margin-right: 0px;}
 `
 
+const workTileInMobile = keyframes`
+  0%  {opacity: 0; height: 0px; min-height: unset; margin: 0;};
+`
+
+const workTileOutMobile = keyframes`
+  100%  {opacity: 0; height: 0px; min-height: unset; margin: 0;}
+`
+
 export const WorkRoot = styled.div`
   display: flex;
   flex-direction: column;
@@ -28,6 +37,10 @@ export const LogoImg = styled.img`
   width: ${(p) => (p.larger ? "60%" : "50%")};
   opacity: 0.4;
   transition: 0.6s;
+
+  @media (max-width: 550px) {
+    display: none;
+  }
 `
 
 export const Title = styled.p`
@@ -37,12 +50,19 @@ export const Title = styled.p`
   transform: translateY(-100%);
   transition: 0.4s;
   font-size: 1.5rem;
+
+  @media (max-width: 550px) {
+    position: relative;
+    transform: none;
+    top: 0%;
+    opacity: 1;
+  }
 `
 
 export const WorkTilesContainer = styled.div`
   display: flex;
-  align-items: stretch;
   width: 70vw;
+  align-items: center;
   height: 22vw;
   max-height: 300px;
   max-width: 1000px;
@@ -52,11 +72,21 @@ export const WorkTilesContainer = styled.div`
   animation-duration: 1s;
 
   @media (max-width: 550px) {
-    max-height: unset;
-    height: auto;
-    width: 100vw;
-    overflow: scroll;
-    margin: 0;
+    display: none;
+  }
+`
+
+export const WorkMobile = styled(Div100vh)`
+  box-sizing: border-box;
+  margin-top: 64px;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  padding: 20px 20px 100px;
+  overflow: scroll;
+
+  @media (min-width: 550px) {
+    display: none;
   }
 `
 
@@ -69,6 +99,8 @@ export const WorkTileRoot = styled.div`
   filter: contrast(0.6);
   margin-right: 3%;
   width: 30%;
+  height: 22vw;
+  max-height: 300px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -82,49 +114,46 @@ export const WorkTileRoot = styled.div`
   animation-fill-mode: ${(p) => (p.animateOut ? "forwards" : "backwards")};
 
   @media (max-width: 550px) {
-    height: 50vw;
-    min-width: 50vw;
-    margin: 20px;
+    width: 100%;
+    margin-bottom: 20px;
+    min-height: 84px;
+    height: 84px;
+    animation-name: ${(p) =>
+      p.animateOut ? workTileOutMobile : workTileInMobile};
+
+    ${(p) =>
+      p.selected &&
+      css`
+        filter: contrast(1);
+      `}
   }
 
-  @media (max-width: 550px) {
-    & ${Title} {
-      opacity: 0.5;
-      top: 90%;
-      font-size: 16px;
+  @media (min-width: 550px) {
+    &:hover {
+      filter: contrast(1);
     }
 
-    & ${LogoImg} {
+    &:hover > ${LogoImg} {
       opacity: 0.75;
       transform: translateY(-20px) scale(0.95);
     }
-  }
+    &:hover > ${Title} {
+      opacity: 0.5;
+      top: 90%;
+    }
 
-  &:hover {
-    filter: contrast(1);
+    ${(p) =>
+      p.selected &&
+      css`
+        filter: contrast(1);
+        & > ${LogoImg} {
+          opacity: 0.75;
+          transform: translateY(-20px) scale(0.95);
+        }
+        & > ${Title} {
+          opacity: 0.5;
+          top: 90%;
+        }
+      `}
   }
-
-  &:hover > ${LogoImg} {
-    opacity: 0.75;
-    transform: translateY(-20px) scale(0.95);
-  }
-
-  &:hover > ${Title} {
-    opacity: 0.5;
-    top: 90%;
-  }
-
-  ${(p) =>
-    p.selected &&
-    css`
-      filter: contrast(1);
-      & > ${LogoImg} {
-        opacity: 0.75;
-        transform: translateY(-20px) scale(0.95);
-      }
-      & > ${Title} {
-        opacity: 0.5;
-        top: 90%;
-      }
-    `}
 `

@@ -22,8 +22,9 @@ export const ContactRoot = styled.form`
   max-width: 500px;
 
   @media (max-width: 550px) {
+    box-sizing: content-box;
     width: 100vw;
-    padding: 0 20px;
+    padding: 104px 20px;
   }
 `
 

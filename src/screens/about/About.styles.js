@@ -1,4 +1,5 @@
-import styled, { keyframes, css } from "styled-components"
+import styled, { keyframes } from "styled-components"
+import Div100vh from "react-div-100vh"
 
 const leftSlideIn = keyframes`
   0% {transform: translateX(150px); opacity: 0;}
@@ -88,16 +89,17 @@ export const KeyValue = styled.p`
   animation-delay: ${(p) => (p.theme.unmounting ? 0 : p.index / 6 + 0.3)}s;
 `
 
-export const AboutMobile = styled.div`
+export const AboutMobile = styled(Div100vh)`
   @media (min-width: 550px) {
     display: none;
   }
   display: flex;
   flex-direction: column;
   color: white;
-  padding: 30px;
-  max-height: 500px;
-  overflow: scroll;
+  margin-top: 64px;
+  padding: 30px 30px 94px;
+  overflow: auto;
+  box-sizing: border-box;
 `
 
 export const Headshot = styled.img`
@@ -110,4 +112,16 @@ export const Headshot = styled.img`
   align-self: center;
   border-radius: 7px;
   margin-bottom: 30px;
+  animation-name: ${(p) => (p.theme.unmounting ? textSlideOut : textSlideIn)};
+  animation-duration: ${(p) => (p.theme.unmounting ? 0.3 : 0.45)}s;
+  animation-fill-mode: ${(p) =>
+    p.theme.unmounting ? "forwards" : "backwards"};
+`
+
+export const AboutMobileCopy = styled.div`
+  animation-name: ${(p) => (p.theme.unmounting ? textSlideOut : textSlideIn)};
+  animation-duration: ${(p) => (p.theme.unmounting ? 0.3 : 0.45)}s;
+  animation-fill-mode: ${(p) =>
+    p.theme.unmounting ? "forwards" : "backwards"};
+  animation-delay: 0.3s;
 `

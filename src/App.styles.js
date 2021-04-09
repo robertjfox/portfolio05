@@ -22,4 +22,9 @@ export const AppContent = styled(Div100vh)`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 550px) {
+    position: relative;
+    align-items: flex-start;
+  }
 `

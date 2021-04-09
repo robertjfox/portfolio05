@@ -22,14 +22,14 @@ export const ProjectRoot = styled(Div100vh)`
   margin-left: 6%;
   display: flex;
   flex-direction: column;
+  max-height: 100%;
 
   @media (max-width: 550px) {
-    position: absolute;
     width: 100%;
     box-sizing: border-box;
-    padding: 120px 20px 20px;
+    padding: 0px 10px 20px;
     margin: 0;
-    overflow: scroll;
+    max-height: unset;
   }
 `
 

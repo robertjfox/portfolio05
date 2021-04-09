@@ -1,4 +1,5 @@
 import styled, { keyframes } from "styled-components"
+import Div100vh from "react-div-100vh"
 
 const containerSlideIn = keyframes`
   0% { transform: translateX(-85px);}
@@ -26,10 +27,16 @@ const imageSlideOut = keyframes`
   100% { transform: translateX(30%); opacity: 0;}
 `
 
-export const LandingRoot = styled.div`
+export const LandingRoot = styled(Div100vh)`
   display: flex;
   align-items: center;
-  height: 200px;
+  max-height: 200px;
+
+  @media (max-width: 550px) {
+    max-height: unset;
+    display: flex;
+    align-items: center;
+  }
 `
 
 export const HeadshotCont = styled.div`

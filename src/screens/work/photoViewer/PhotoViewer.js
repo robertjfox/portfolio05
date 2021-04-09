@@ -7,10 +7,11 @@ export const PhotoViewer = ({ photos, onClose }) => {
 
   var settings = {
     dots: true,
-    infinite: true,
-    speed: 500,
+    infinite: false,
+    speed: 750,
     slidesToShow: isPhoneScreen ? 1 : 1.5,
     slidesToScroll: 1,
+    focusOnSelect: true,
   }
 
   return (
@@ -23,6 +24,7 @@ export const PhotoViewer = ({ photos, onClose }) => {
               <S.SlideImg src={src} />
             </S.Slide>
           ))}
+          <S.Slide />
         </S.Slider>
       </S.InnerContainer>
     </S.Container>

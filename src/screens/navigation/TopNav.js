@@ -1,6 +1,8 @@
 import React from "react"
 import { Fade } from "react-reveal"
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
+
+const fadeIn = keyframes`0% {opacity: 0}`
 
 const TopNavRoot = styled.div`
   display: flex;
@@ -12,6 +14,16 @@ const TopNavRoot = styled.div`
 
   @media (max-width: 550px) {
     position: absolute;
+    background: rgba(255, 255, 255, 0.3);
+    max-width: 100vw;
+    padding: 18px;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    animation-name: ${fadeIn};
+    animation-delay: 3s;
+    animation-fill-mode: backwards;
+    animation-duration: 0.3s;
   }
 `
 
@@ -24,6 +36,11 @@ const NavItem = styled.p`
   &:hover {
     opacity: 1;
   }
+
+  @media (max-width: 550px) {
+    margin: 0 25px;
+    font-size: 18px;
+  }
 `
 
 const Line = styled.div`
@@ -31,6 +48,10 @@ const Line = styled.div`
   height: 2px;
   background: white;
   opacity: 0.5;
+
+  @media (max-width: 550px) {
+    display: none;
+  }
 `
 
 const TopNav = ({ setScreen, navSelection }) => {

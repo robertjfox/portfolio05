@@ -25,13 +25,14 @@ const PROJECT_DATA = {
     url: "https://getrentroom.com",
     technologies: ["React", "Redux", "TypeScript", "Firebase"],
     description: [
-      "Rentroom is the all-in-one platform designed to reduce the administrative burden of property businesses.",
-      "My time at RentRoom was spent developing new features, and improving on existing features.",
+      "Rentroom is the all-in-one platform designed to reduce the administrative burden of the property management businesses.",
+      "My time at RentRoom was spent designing and developing new features, and improving on existing features.",
     ],
   },
   cultivateFruits: {
     title: "Cultivate Fruits",
     logo: cultivateFruits.logo,
+    photos: cultivateFruits.photos,
     role: "Developer & Designer",
     dates: "March 2020",
     url: "https://cultivateFruits.com",

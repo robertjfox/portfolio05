@@ -88,14 +88,34 @@ const Work = ({ unmounting }) => {
           )}
         </S.WorkTilesContainer>
       </S.WorkRoot>
-      {isPhoneScreen && !!selectedProject && showTileDescription && (
-        <Project
-          handleDeselection={handleDeselection}
-          project={selectedProject}
-          unmounting={unmounting}
-          setUnmountFromProject={setUnmountFromProject}
-        />
-      )}
+      <S.WorkMobile>
+        {PROJECT_NAMES.map((project, index) => {
+          const selected = selectedTile === project
+          if (!showTileDescription || selected) {
+            return (
+              <WorkTile
+                index={index}
+                project={project}
+                animateOut={
+                  unmountFromProject ||
+                  unmountNoProject ||
+                  (!!selectedTile && !selected)
+                }
+                selected={selected}
+                handleSelection={handleSelection}
+              />
+            )
+          }
+        })}
+        {isPhoneScreen && !!selectedProject && showTileDescription && (
+          <Project
+            handleDeselection={handleDeselection}
+            project={selectedProject}
+            unmounting={unmounting}
+            setUnmountFromProject={setUnmountFromProject}
+          />
+        )}
+      </S.WorkMobile>
     </>
   )
 }

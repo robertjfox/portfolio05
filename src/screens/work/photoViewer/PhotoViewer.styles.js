@@ -1,5 +1,7 @@
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
 import _Slider from "react-slick"
+
+const fadeIn = keyframes`0% {opacity: 0}`
 
 export const Container = styled.div`
   display: flex;
@@ -10,6 +12,8 @@ export const Container = styled.div`
   left: 0;
   width: 100vw;
   height: 100vh;
+  animation-name: ${fadeIn};
+  animation-duration: 0.35s;
 `
 
 export const Background = styled.div`
@@ -36,7 +40,7 @@ export const Slide = styled.div``
 
 export const SlideImg = styled.img`
   width: 50vw;
-  transform: translateX(-8vw);
+  transform: translateX(25vw);
 
   @media (max-width: 550px) {
     width: 100vw;
