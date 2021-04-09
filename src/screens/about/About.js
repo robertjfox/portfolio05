@@ -30,12 +30,6 @@ const About = () => {
           effective problem solver and enjoy working on teams, both large and
           small. I also have a formal graphic design background, and a a strong
           attention to detail.
-          <br />
-          <br />I have a passion for designing and developing seamless user
-          experiences and vibrant digital products. I am a natural communicator,
-          effective problem solver and enjoy working on teams, both large and
-          small. I also have a formal graphic design background, and a a strong
-          attention to detail.
         </S.AboutMobileCopy>
       </S.AboutMobile>
     </>

@@ -14,6 +14,8 @@ const WorkTile = ({
   const projectData = PROJECT_DATA[project]
   const { title, logo } = projectData
 
+  const isPhoneScreen = useIsPhoneScreen()
+
   return (
     <S.WorkTileRoot
       animateOut={animateOut}
@@ -22,6 +24,7 @@ const WorkTile = ({
       selected={selected}
       id={"link"}
     >
+      {selected && isPhoneScreen && <S.ReturnIcon>{"‹"}</S.ReturnIcon>}
       <S.LogoImg src={logo} larger={project === "rentroom"} />
       <S.Title>{title}</S.Title>
     </S.WorkTileRoot>
@@ -38,6 +41,11 @@ const Work = ({ unmounting }) => {
   const isPhoneScreen = useIsPhoneScreen()
 
   const handleSelection = (project, index) => {
+    if (project === selectedProject) {
+      handleDeselection()
+      return
+    }
+
     setSelectedTile(project)
     setSelectedProject(project)
     setTimeout(() => {

@@ -21,10 +21,12 @@ const workTileOut = keyframes`
 
 const workTileInMobile = keyframes`
   0%  {opacity: 0; height: 0px; min-height: unset; margin: 0;};
+  50% {opacity: 0};
 `
 
 const workTileOutMobile = keyframes`
   100%  {opacity: 0; height: 0px; min-height: unset; margin: 0;}
+  50% {opacity: 0};
 `
 
 export const WorkRoot = styled.div`
@@ -156,4 +158,13 @@ export const WorkTileRoot = styled.div`
         }
       `}
   }
+`
+
+export const ReturnIcon = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  color: white;
+  font-size: 40px;
+  transform: translateY(-60%);
 `
