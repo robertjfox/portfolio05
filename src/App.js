@@ -7,6 +7,7 @@ import Landing from "~/screens/landing/Landing"
 import About from "~/screens/about/About"
 import Work from "~/screens/work/Work"
 import Contact from "~/screens/contact/Contact"
+import Art from "~/screens/art/Art"
 import Cursor from "~/components/Cursor"
 
 export const MountingContext = createContext(false)
@@ -41,6 +42,7 @@ export const App = () => {
             {screen === "landing" && <Landing />}
             {screen === "about" && <About />}
             {screen === "work" && <Work unmounting={unmounting} />}
+            {screen === "art" && <Art />}
             {screen === "contact" && <Contact />}
           </S.AppContent>
         </S.AppRoot>

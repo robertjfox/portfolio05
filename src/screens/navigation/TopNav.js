@@ -38,7 +38,7 @@ const NavItem = styled.p`
   }
 
   @media (max-width: 550px) {
-    margin: 0 25px;
+    margin: 0 15px;
     font-size: 18px;
   }
 `
@@ -72,10 +72,19 @@ const TopNav = ({ setScreen, navSelection }) => {
           selected={navSelection === "work"}
           id="link"
         >
-          WORK
+          CODE
         </NavItem>
       </Fade>
       <Fade down delay={3400}>
+        <NavItem
+          onClick={() => setScreen("art")}
+          selected={navSelection === "art"}
+          id="link"
+        >
+          ART
+        </NavItem>
+      </Fade>
+      <Fade down delay={3600}>
         <NavItem
           onClick={() => setScreen("contact")}
           selected={navSelection === "contact"}
@@ -84,7 +93,7 @@ const TopNav = ({ setScreen, navSelection }) => {
           CONTACT
         </NavItem>
       </Fade>
-      <Fade right delay={3600}>
+      <Fade right delay={3800}>
         <Line />
       </Fade>
     </TopNavRoot>
