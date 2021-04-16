@@ -3,11 +3,11 @@ import data from "./assets"
 import { useIsPhoneScreen } from "~/hooks/useIsPhoneScreen"
 import * as S from "./Art.styles"
 
-const Art = () => {
+const Art = ({ show }) => {
   const isPhoneScreen = useIsPhoneScreen()
 
   var settings = {
-    dots: false,
+    dots: isPhoneScreen,
     infinite: false,
     speed: 750,
     slidesToShow: isPhoneScreen ? 1 : 3,
@@ -17,10 +17,10 @@ const Art = () => {
   }
 
   return (
-    <S.ArtContainer>
+    <S.ArtContainer show={show}>
       <S.Slider {...settings}>
-        {data?.photos.map((src) => (
-          <S.Slide>
+        {data?.photos.map((src, index) => (
+          <S.Slide index={index}>
             <S.SlideImg src={src} />
           </S.Slide>
         ))}

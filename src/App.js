@@ -42,7 +42,7 @@ export const App = () => {
             {screen === "landing" && <Landing />}
             {screen === "about" && <About />}
             {screen === "work" && <Work unmounting={unmounting} />}
-            {screen === "art" && <Art />}
+            <Art show={screen === "art"} />
             {screen === "contact" && <Contact />}
           </S.AppContent>
         </S.AppRoot>
