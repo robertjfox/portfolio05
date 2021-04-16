@@ -24,7 +24,6 @@ const Art = ({ show }) => {
             <S.SlideImg src={src} />
           </S.Slide>
         ))}
-        <S.Slide />
       </S.Slider>
     </S.ArtContainer>
   )
