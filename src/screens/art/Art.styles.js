@@ -66,6 +66,7 @@ export const Slide = styled.div`
 export const SlideImg = styled.img`
   width: 25vw;
   @media (max-width: 550px) {
-    width: 100vw;
+    width: 90vw;
+    margin: 0 5vw;
   }
 `
