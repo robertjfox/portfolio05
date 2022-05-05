@@ -8,13 +8,15 @@ const Art = ({ show }) => {
 
   var settings = {
     dots: isPhoneScreen,
-    infinite: false,
-    speed: 750,
+    infinite: true,
+    speed: 1000,
     slidesToShow: isPhoneScreen ? 1 : 3,
     slidesToScroll: 1,
     focusOnSelect: true,
-    centerMode: !isPhoneScreen,
+    centerMode: true,
   }
+
+  console.log(data)
 
   return (
     <S.ArtContainer show={show}>

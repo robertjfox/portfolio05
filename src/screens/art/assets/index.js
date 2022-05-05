@@ -7,9 +7,15 @@ import skullGuitar from "~/screens/art/assets/skullGuitar.png"
 import queen from "~/screens/art/assets/queen.png"
 import king from "~/screens/art/assets/king.png"
 import libertyPink from "~/screens/art/assets/libertyPink.png"
+import david from "~/screens/art/assets/david.png"
+import brokenBust from "~/screens/art/assets/brokenBust.png"
+import athenaSpear from "~/screens/art/assets/athenaSpear.png"
 
 export default {
   photos: [
+    david,
+    brokenBust,
+    athenaSpear,
     libertyPink,
     skullGuitar,
     king,
