@@ -39,34 +39,37 @@ export const Slider = styled(_Slider)`
   }
 
   & ul.slick-dots {
-    bottom: 150px;
+    bottom: 50px;
   }
 
   & .slick-dots li button:before {
     color: white;
     transform: scale(2);
   }
+
+  @media (max-wdith: 550px) {
+    & ul.slick-dots {
+      bottom: 150px;
+    }
+  }
 `
 
 export const Slide = styled.div`
-  width: 30vw;
   display: flex;
   align-items: center;
   animation-name: ${(p) => (p.theme.unmounting ? fadeOut : fadeIn)};
   animation-duration: ${(p) => (p.theme.unmounting ? 0.5 : 1)}s;
   animation-fill-mode: ${(p) =>
     p.theme.unmounting ? "forwards" : "backwards"};
-  animation-delay: ${(p) => (p.theme.unmounting ? 0 : p.index / 5)}s;
-
-  @media (max-wdith: 550px) {
-    width: 100vw;
-  }
 `
 
 export const SlideImg = styled.img`
-  width: 25vw;
+  opacity: ${(p) => (p.isCurrent ? 1 : 0.3)};
+  width: ${(p) => (p.isCurrent ? "26vw" : "23vw")};
+  transition: 0.5s ease-in;
   @media (max-width: 550px) {
+    width: 25vw;
+    opacity: 1;
     width: 90vw;
-    margin: 0 5vw;
   }
 `

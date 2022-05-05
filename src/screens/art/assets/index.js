@@ -13,11 +13,11 @@ import athenaSpear from "~/screens/art/assets/athenaSpear.png"
 
 export default {
   photos: [
+    libertyPink,
+    skullGuitar,
     david,
     brokenBust,
     athenaSpear,
-    libertyPink,
-    skullGuitar,
     king,
     queen,
     jack,
