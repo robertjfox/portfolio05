@@ -10,9 +10,15 @@ import libertyPink from "~/screens/art/assets/libertyPink.png"
 import david from "~/screens/art/assets/david.png"
 import brokenBust from "~/screens/art/assets/brokenBust.png"
 import athenaSpear from "~/screens/art/assets/athenaSpear.png"
+import davidGraffiti from "~/screens/art/assets/davidGraffiti.jpg"
+import cupid from "~/screens/art/assets/cupid.jpg"
+import letGo from "~/screens/art/assets/letGo.jpg"
 
 export default {
   photos: [
+    davidGraffiti,
+    letGo,
+    cupid,
     libertyPink,
     skullGuitar,
     david,
