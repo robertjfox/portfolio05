@@ -12,7 +12,7 @@ const PROJECT_DATA = {
     url: "https://avantstay.com",
     description: [
       "AvantStay is a hospitality company that offers a branded, consistent quality experience in the otherwise fragmented short-term rental industry.",
-      "At AvantStay, I lead the development of our customer facing booking platform, responsible for over $75 million in annual revenue. I work with designers and product managers to scope new features. I also run the technical recruiting process for the frontend.",
+      "At AvantStay, I lead the development of our customer facing booking platform, responsible for over $50 million in annual revenue. I work with designers and product managers to scope new features. I also run the technical recruiting process for the frontend.",
     ],
     technologies: ["React", "Mobx", "TypeScript", "GraphQL"],
   },
