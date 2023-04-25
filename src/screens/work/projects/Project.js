@@ -59,19 +59,21 @@ const ProjectAvantStay = ({
           <a href={url} target="_blank" rel="noopener noreferrer" id="link">
             <S.Button
               src={process.env.PUBLIC_URL + iconWebsite}
-              alt="contact"
+              alt="website"
               unmounting={unmountingLocal}
               index={0}
             />
           </a>
-          <S.Button
-            src={process.env.PUBLIC_URL + iconPhotos}
-            alt="contact"
-            unmounting={unmountingLocal}
-            index={1}
-            onClick={() => setShowPhotos(true)}
-            id="link"
-          />
+          {!!photos?.length && (
+            <S.Button
+              src={process.env.PUBLIC_URL + iconPhotos}
+              alt="photos"
+              unmounting={unmountingLocal}
+              index={1}
+              onClick={() => setShowPhotos(true)}
+              id="link"
+            />
+          )}
         </S.ButtonRow>
       </S.ProjectRoot>
       <S.CloseButton id="link" onClick={_handleDeselection}>
