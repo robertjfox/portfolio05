@@ -1,14 +1,36 @@
 import avantstay from "./assets/avantstay"
 import rentroom from "./assets/rentroom"
-import cultivateFruits from "./assets/cultivateFruits"
+import repreach from "./assets/repreach"
 
 const PROJECT_DATA = {
+  repreach: {
+    title: "RepReach",
+    logo: repreach.logo,
+    // photos: cultivateFruits.photos,
+    role: "Founding Fullstack Engineer",
+    dates: "October 2022 - Present",
+    url: "https://getrepreach.com",
+    technologies: [
+      "React",
+      "React Native",
+      "TypeScript",
+      "PSQL",
+      "Node",
+      "Express",
+      "Python",
+    ],
+    description: [
+      "RepReach is a platform that connects medical offices with pharmaceutical representatives.",
+      "At RepReach, I am responsible for the entire technical stack. I work with the CEO & CTO to plan, design, and develop new features.",
+      "Here I have built several platforms, including a web app for medical offices, a mobile app for pharmaceutical representatives, an AI based chatbot for pharmaceutical products and diseases, and a web based dashboard for pharmaceutical companies to manage their sales force.",
+    ],
+  },
   avantstay: {
     title: "AvantStay",
     logo: avantstay.logo,
     photos: avantstay.photos,
     role: "Lead Frontend Engineer",
-    dates: "September 2020 - Present",
+    dates: "September 2020 - October 2022",
     url: "https://avantstay.com",
     description: [
       "AvantStay is a hospitality company that offers a branded, consistent quality experience in the otherwise fragmented short-term rental industry.",
@@ -27,18 +49,6 @@ const PROJECT_DATA = {
     description: [
       "Rentroom is the all-in-one platform designed to reduce the administrative burden of the property management businesses.",
       "My time at RentRoom was spent designing and developing new features, and improving on existing features.",
-    ],
-  },
-  cultivateFruits: {
-    title: "Cultivate Fruits",
-    logo: cultivateFruits.logo,
-    photos: cultivateFruits.photos,
-    role: "Developer & Designer",
-    dates: "March 2020",
-    url: "https://cultivateFruits.com",
-    description: [
-      "Cultivate Fruits is an online marketplace for exotic fruiting plants. It is the ecommerce footprint of a family farm based in Oregon.",
-      "I built this project on the Shopify platform, designing all assets from scratch and injecting custom code where necessary.",
     ],
   },
 }

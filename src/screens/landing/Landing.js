@@ -23,8 +23,8 @@ const Landing = () => {
       </S.HeadshotCont>
       <S.TextCont>
         <Text string="Robert Fox" delay={0} />
-        <Text string="Web Developer" delay={1} />
-        <Text string="Digital Designer" delay={2} />
+        <Text string="Software Engineer" delay={1} />
+        <Text string="Full Stack Developer" delay={2} />
       </S.TextCont>
     </S.LandingRoot>
   )

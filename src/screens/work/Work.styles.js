@@ -39,6 +39,8 @@ export const LogoImg = styled.img`
   width: ${(p) => (p.larger ? "60%" : "50%")};
   opacity: 0.4;
   transition: 0.6s;
+  // make it always white
+  filter: brightness(0) invert(1);
 
   @media (max-width: 550px) {
     display: none;

@@ -37,10 +37,10 @@ const ProjectAvantStay = ({
         <S.Dates unmounting={unmountingLocal}>{dates}</S.Dates>
         <br />
         <S.Description unmounting={unmountingLocal}>
-          {description.map((par) => {
+          {description.map((p) => {
             return (
               <>
-                {par}
+                {p}
                 <br />
                 <br />
               </>

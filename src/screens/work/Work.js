@@ -1,4 +1,4 @@
-import React, { useImperativeHandle, useState } from "react"
+import React, { useState } from "react"
 import * as S from "./Work.styles"
 import PROJECT_DATA from "./Work.data"
 import Project from "./projects/Project"
@@ -61,7 +61,7 @@ const Work = ({ unmounting }) => {
     }, 400)
   }
 
-  const PROJECT_NAMES = ["avantstay", "rentroom", "cultivateFruits"]
+  const PROJECT_NAMES = ["repreach", "avantstay", "rentroom"]
 
   return (
     <>

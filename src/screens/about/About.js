@@ -9,12 +9,12 @@ const About = () => {
         <S.BracketLeft>{`{`}</S.BracketLeft>
         <S.KeyValueContainer>
           <S.KeyValue index={0}>"who" : "robert fox"</S.KeyValue>
-          <S.KeyValue index={1}>"where" : "brooklyn, new york"</S.KeyValue>
+          <S.KeyValue index={1}>"where" : "new york, new york"</S.KeyValue>
           <S.KeyValue index={2}>
-            "what" : [ "front end developer", "digital designer" ]
+            "what" : [ "full stack developer", "product specialist" ]
           </S.KeyValue>
           <S.KeyValue index={3}>
-            "how" : [ "typescript", "react", "graphQL" ]
+            "how" : [ "typescript", "react", "node", "python" ]
           </S.KeyValue>
         </S.KeyValueContainer>
         <S.BracketRight>{`}`}</S.BracketRight>
